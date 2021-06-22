@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import "./register.css";
-import firebase from '../../../firebase';
+import firebase from '../../../../firebase';
 import {toast} from 'react-toastify';
 import { useHistory } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 
 export default function Register(){
 
@@ -28,6 +27,7 @@ export default function Register(){
             .then((createdUser) => {
                 console.log(createdUser);
                 toast.success('Registration successful');
+                history.push("/home");
             })
             .catch((err) => {
                 console.error(err);
@@ -37,7 +37,10 @@ export default function Register(){
     return (
         <>
             <div class="form">
-               
+                    <div>
+                        Register for Equipes!
+                    </div>
+
                     <Form.Group controlId="formBasicEmail" class="form-el">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" 
@@ -60,14 +63,22 @@ export default function Register(){
                             onChange={handleChange} name='passwordConfirmation'/>
                     </Form.Group>
 
+                    
                     <Button variant="primary" type="submit" class="form-el submit-btn" onClick={handleSubmit}>
                         Submit
                     </Button>
 
-                    Already a user Click here to 
-                    <span onClick={()=>{history.push("/login")}}>
-                        login
-                    </span>
+
+                    <br></br>
+                    <Form.Text className="text-muted" class="form-el">
+                        Already a user? Click here to  
+                        <span onClick={()=>{history.push("/login")}}>
+                            {' '}<a>login</a>
+                        </span>
+
+                    </Form.Text>
+                    
+                    
                 
             </div>
         </>

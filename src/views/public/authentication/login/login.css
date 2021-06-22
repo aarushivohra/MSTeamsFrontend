@@ -12,3 +12,11 @@
 .submit-btn{
     margin-top: 20px;
 }
+
+a{
+    text-decoration: underline !important;
+}
+
+a:hover{
+    cursor: pointer;
+}
