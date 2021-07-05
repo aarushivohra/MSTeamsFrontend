@@ -4,6 +4,7 @@ import Register from './views/public/authentication/register/Register';
 import Login from './views/public/authentication/login/Login';
 import Home from './views/private/home/Home';
 import VideoChat from './views/private/video chat/VideoChat';
+import Room from './views/private/room/Room';
 
 export default function MainRoutes(){
     return (
@@ -22,6 +23,9 @@ export default function MainRoutes(){
             </Route>
             <Route exact path="/videochat">
                 <VideoChat/>
+            </Route>
+            <Route exact path="/room/:roomId">
+                <Room/>
             </Route>
         </Switch>
     )
